@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 class Passport
@@ -48,7 +49,7 @@ class Day4
 
     @passports = @all.map do |hsh|
       Passport.new(**hsh)
-    rescue => e
+    rescue StandardError => e
       @errors << e
     end
 

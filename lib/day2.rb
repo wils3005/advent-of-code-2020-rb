@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+# typed: false
 # frozen_string_literal: true
 
 regexp = /(?<min>\d+)-(?<max>\d+) (?<char>\w+): (?<password>\w+)/
