@@ -11,7 +11,7 @@ Pry.config.commands.command 'reload', 'reloads all your crappy code' do
 end
 
 Pry.config.commands.command 'srb', 'runs sorbet on everything' do
-  `bundle exec srb t`
+  `bundle exec srb t -a`
 end
 
 Pry.config.commands.alias_command 'r', 'reload'
