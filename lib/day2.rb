@@ -24,19 +24,17 @@ class Day2
 
   sig { returns(T::Array[Integer]) }
   def call
-    %i[part1 part2].map { @arr.select(&method(_1)).size }
-  end
+    part1 = @arr.select do |hsh|
+      range = (hsh['min'].to_i..hsh['max'].to_i)
+      occurrences = hsh['password'].scan(hsh['char']).size
+      range.cover?(occurrences)
+    end.size
 
-  sig { params(hsh: T::Hash[String, String]).returns(T::Boolean) }
-  def part1(hsh)
-    range = (hsh['min'].to_i..hsh['max'].to_i)
-    occurrences = hsh['password'].scan(hsh['char']).size
-    range.cover?(occurrences)
-  end
+    part2 = @arr.select do |hsh|
+      (hsh['password'][hsh['min'].to_i - 1] == hsh['char']) ^
+        (hsh['password'][hsh['max'].to_i - 1] == hsh['char'])
+    end.size
 
-  sig { params(hsh: T::Hash[String, String]).returns(T::Boolean) }
-  def part2(hsh)
-    (hsh['password'][hsh['min'].to_i - 1] == hsh['char']) ^
-      (hsh['password'][hsh['max'].to_i - 1] == hsh['char'])
+    [part1, part2]
   end
 end
