@@ -1,7 +1,6 @@
 # typed: strict
 # frozen_string_literal: true
 
-# https://adventofcode.com/2020/day/2
 class Day2
   extend T::Sig
 
@@ -22,19 +21,20 @@ class Day2
       )
   end
 
-  sig { returns(T::Array[Integer]) }
-  def call
-    part1 = @arr.select do |hsh|
+  sig { returns(Integer) }
+  def part1
+    @arr.select do |hsh|
       range = (hsh['min'].to_i..hsh['max'].to_i)
       occurrences = hsh['password'].scan(hsh['char']).size
       range.cover?(occurrences)
     end.size
+  end
 
-    part2 = @arr.select do |hsh|
+  sig { returns(Integer) }
+  def part2
+    @arr.select do |hsh|
       (hsh['password'][hsh['min'].to_i - 1] == hsh['char']) ^
         (hsh['password'][hsh['max'].to_i - 1] == hsh['char'])
     end.size
-
-    [part1, part2]
   end
 end

@@ -15,7 +15,7 @@ Pry.config.commands.command 'rubocop', 'runs sorbet on everything' do
 end
 
 Pry.config.commands.command 'srb', 'runs sorbet on everything' do
-  `bundle exec srb t -a`
+  `bundle exec srb t`
 end
 
 reload

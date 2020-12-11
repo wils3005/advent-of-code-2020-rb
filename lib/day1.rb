@@ -1,7 +1,6 @@
 # typed: strict
 # frozen_string_literal: true
 
-# https://adventofcode.com/2020/day/1
 class Day1
   extend T::Sig
 
